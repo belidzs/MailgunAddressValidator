@@ -4,12 +4,12 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
+    <authors>belidzs</authors>
     <owners>$author$</owners>
     <licenseUrl>https://github.com/belidzs/MailgunAddressValidator/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/belidzs/MailgunAddressValidator</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>This asynchronous library checks email addresses against Mailgun's e-mail validation service</description>
     <releaseNotes>First release</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>mailgun email-validation</tags>
