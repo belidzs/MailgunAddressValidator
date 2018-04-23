@@ -1,0 +1,23 @@
+# Solution-szintű kizárások
+*.suo
+.vs/
+
+# forrás: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Projektszintű kizárások (pontosan egy könyvtár mélyen)
+*/bin/
+*/obj/
+*/env/
+*/Properties/licences.licx
+app.config
