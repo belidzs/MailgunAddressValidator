@@ -19,7 +19,7 @@ namespace MailgunAddressValidatorTests
         [Test]
         public void ValidateInvalidAddress()
         {
-            ValidationResult result = Validator.Validate("test@example.com", apikey);
+            ValidationResult result = Validator.Validate("test@nonexistentdomain.com", apikey);
             Assert.That(result.IsValid, Is.False);
         }
 
