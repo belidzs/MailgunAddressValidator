@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MailgunAddressValidatorTests.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="PublicApiKey" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">pubkey-96a784c54736e3479ab438e76e29fe75</Value>
-    </Setting>
-  </Settings>
-</SettingsFile>
