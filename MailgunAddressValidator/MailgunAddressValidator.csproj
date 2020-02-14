@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
-    <Version>1.1.0</Version>
+    <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
+    <Version>1.1.1</Version>
     <Authors>Balázs Keresztury</Authors>
     <Company></Company>
     <Description>This asynchronous library checks email addresses against Mailgun's e-mail validation service</Description>
@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/belidzs/MailgunAddressValidator</RepositoryUrl>
     <RepositoryType />
     <PackageTags>mailgun email-validation</PackageTags>
-    <PackageReleaseNotes>Ported to .NET Standard 1.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Ported to .NET Standard 1.1 and .NET Standard 2.0</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
