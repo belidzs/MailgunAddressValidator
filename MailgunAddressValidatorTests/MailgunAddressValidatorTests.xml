@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MailgunAddressValidatorTests</name>
+    </assembly>
+    <members>
+        <member name="T:MailgunAddressValidatorTests.MailgunAddressValidatorTests">
+            <summary>
+            Contains tests for the MailgunAddressValidator project.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateValidAddressAsync">
+            <summary>
+            Tests if a valid email address returns valid response.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous unit test.</returns>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateValidAddress">
+            <summary>
+            Tests if a valid email address returns valid response.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateInvalidAddressAsync">
+            <summary>
+            Tests if an invalid e-mail address returns invalid response.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous unit test.</returns>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateInvalidAddress">
+            <summary>
+            Tests if an invalid e-mail address returns invalid response.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateAddressWithTypoAsync">
+            <summary>
+            Tests if an e-mail containing a typo gets fixed.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous unit test.</returns>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ValidateAddressWithTypo">
+            <summary>
+            Tests if an e-mail containing a typo gets fixed.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ThrowTimeoutExceptionAsync">
+            <summary>
+            Tests if a request with very short timeout actually fails.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ThrowTimeoutException">
+            <summary>
+            Tests if a request with very short timeout actually fails.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ThrowUnauthorizedExceptionOnBadApiKeyAsync">
+            <summary>
+            Tests if an exception is thrown when the API key is invalid.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidatorTests.MailgunAddressValidatorTests.ThrowUnauthorizedExceptionOnBadApiKey">
+            <summary>
+            Tests if an exception is thrown when the API key is invalid.
+            </summary>
+        </member>
+    </members>
+</doc>

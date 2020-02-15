@@ -18,7 +18,7 @@ namespace MailgunAddressValidator
     public static class Validator
     {
         private const string MailgunBaseUrl = "https://api.mailgun.net";
-        private const string ValidatorResource = "/v3/address/validate";
+        private const string MailgunValidatorResource = "/v3/address/validate";
         private static readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings()
         {
             ContractResolver = new DefaultContractResolver()
@@ -28,7 +28,7 @@ namespace MailgunAddressValidator
         };
 
         /// <summary>
-        /// Validates an e-mail address in a syncronous fashion.
+        /// Validates an e-mail address.
         /// </summary>
         /// <param name="email">E-mail address to validate.</param>
         /// <param name="apikey">Mailgun e-mail validation API key.</param>
@@ -38,25 +38,19 @@ namespace MailgunAddressValidator
         {
             try
             {
-                var response = GetClient(apikey, timeout).GetAsync(GetUri(email)).Result;
+                var response = AsyncHelper.RunSync(() => GetConfiguredClient(apikey, timeout).GetAsync(GetUri(email)));
                 EvaluateResponse(response);
-                return JsonConvert.DeserializeObject<ValidationResult>(response.Content.ReadAsStringAsync().Result, _jsonSerializerSettings);
+                string responseBody = AsyncHelper.RunSync(() => response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<ValidationResult>(responseBody, _jsonSerializerSettings);
             }
-            catch (AggregateException ex)
+            catch (TaskCanceledException)
             {
-                if (ex.InnerException is TaskCanceledException)
-                {
-                    throw new TimeoutException("API call took longer than expected.");
-                }
-                else
-                {
-                    throw;
-                }
+                throw new TimeoutException("API call took longer than expected.");
             }
         }
 
         /// <summary>
-        /// Validates an e-mail address in an asyncronous fashion.
+        /// Validates an e-mail address.
         /// </summary>
         /// <param name="email">E-mail address to validate.</param>
         /// <param name="apikey">Mailgun e-mail validation API key.</param>
@@ -66,20 +60,14 @@ namespace MailgunAddressValidator
         {
             try
             {
-                var response = await GetClient(apikey, timeout).GetAsync(GetUri(email));
+                var response = await GetConfiguredClient(apikey, timeout).GetAsync(GetUri(email)).ConfigureAwait(false);
                 EvaluateResponse(response);
-                return JsonConvert.DeserializeObject<ValidationResult>(await response.Content.ReadAsStringAsync(), _jsonSerializerSettings);
+                string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                return JsonConvert.DeserializeObject<ValidationResult>(responseBody, _jsonSerializerSettings);
             }
-            catch (AggregateException ex)
+            catch (TaskCanceledException)
             {
-                if (ex.InnerException is TaskCanceledException)
-                {
-                    throw new TimeoutException("API call took longer than expected.");
-                }
-                else
-                {
-                    throw;
-                }
+                throw new TimeoutException("API call took longer than expected.");
             }
         }
 
@@ -95,7 +83,7 @@ namespace MailgunAddressValidator
             }
         }
 
-        private static HttpClient GetClient(string apikey, int timeout)
+        private static HttpClient GetConfiguredClient(string apikey, int timeout)
         {
             var auth = new HttpClientHandler()
             {
@@ -114,7 +102,7 @@ namespace MailgunAddressValidator
         {
             UriBuilder ub = new UriBuilder(MailgunBaseUrl)
             {
-                Path = ValidatorResource,
+                Path = MailgunValidatorResource,
                 Query = $"address={email}",
             };
             return ub.Uri;
