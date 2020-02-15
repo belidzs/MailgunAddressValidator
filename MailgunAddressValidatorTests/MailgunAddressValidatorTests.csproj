@@ -2,7 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>MailgunAddressValidator</RootNamespace>
+    <RootNamespace>MailgunAddressValidatorTests</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>MailgunAddressValidatorTests.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>MailgunAddressValidatorTests.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ConfigureAwaitChecker.Analyzer" Version="4.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">

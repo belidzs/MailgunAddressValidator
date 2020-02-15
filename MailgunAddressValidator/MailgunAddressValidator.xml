@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MailgunAddressValidator</name>
+    </assembly>
+    <members>
+        <member name="T:MailgunAddressValidator.AsyncHelper">
+            <summary>
+            Helper class to wrap an async delegate into a syncronous method.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidator.AsyncHelper.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Wraps a generic async delegate into a syncronous method.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="func">The asyncronous delegate.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:MailgunAddressValidator.AsyncHelper.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Wraps an async delegate into a syncronous method.
+            </summary>
+            <param name="func">The asyncronous delegate.</param>
+        </member>
+        <member name="T:MailgunAddressValidator.UnauthorizedException">
+            <summary>
+            It is thrown when the client is unable to authorize with the Mailgun API.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidator.UnauthorizedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MailgunAddressValidator.UnauthorizedException"/> class.
+            </summary>
+        </member>
+        <member name="T:MailgunAddressValidator.ValidationResult">
+            <summary>
+            Contains the result of a validation.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResult.IsValid">
+            <summary>
+            Runs the email segments across a valid known provider rule list. If a violation occurs this value is false.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResult.Address">
+            <summary>
+            Email address being validated.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResult.Parts">
+            <summary>
+            Parsed segments of the provided email address.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResult.DidYouMean">
+            <summary>
+            Null if nothing, however if a potential typo is made, the closest suggestion is provided.
+            </summary>
+        </member>
+        <member name="T:MailgunAddressValidator.ValidationResultParts">
+            <summary>
+            Contains parsed segments of the provided email address.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResultParts.DisplayName">
+            <summary>
+            Display name for the address.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResultParts.LocalPart">
+            <summary>
+            The local part of the e-mail address.
+            </summary>
+        </member>
+        <member name="P:MailgunAddressValidator.ValidationResultParts.Domain">
+            <summary>
+            The domain part of the e-mail address.
+            </summary>
+        </member>
+        <member name="T:MailgunAddressValidator.Validator">
+            <summary>
+            Contains static functions to validate an e-mail address using Mailgun's e-mail validation service.
+            </summary>
+        </member>
+        <member name="M:MailgunAddressValidator.Validator.Validate(System.String,System.String,System.Int32)">
+            <summary>
+            Validates an e-mail address.
+            </summary>
+            <param name="email">E-mail address to validate.</param>
+            <param name="apikey">Mailgun e-mail validation API key.</param>
+            <param name="timeout">Max. time to wait for the call to complete (in ms).</param>
+            <returns>A ValidationResult object.</returns>
+        </member>
+        <member name="M:MailgunAddressValidator.Validator.ValidateAsync(System.String,System.String,System.Int32)">
+            <summary>
+            Validates an e-mail address.
+            </summary>
+            <param name="email">E-mail address to validate.</param>
+            <param name="apikey">Mailgun e-mail validation API key.</param>
+            <param name="timeout">Max. time to wait for the call to complete (in ms).</param>
+            <returns>A Task containg a ValidationResult object.</returns>
+        </member>
+    </members>
+</doc>
