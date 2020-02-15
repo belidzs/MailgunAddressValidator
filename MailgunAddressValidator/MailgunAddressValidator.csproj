@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Authors>Balázs Keresztury</Authors>
     <Company></Company>
     <Description>This asynchronous library checks email addresses against Mailgun's e-mail validation service</Description>
